@@ -1,0 +1,9 @@
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Debug\PicTools.exe.config
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Debug\PicTools.exe
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Debug\PicTools.pdb
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.csprojResolveAssemblyReference.cache
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.Properties.Resources.resources
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.csproj.GenerateResource.Cache
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.exe
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.pdb
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.动画帧格式化工具.resources

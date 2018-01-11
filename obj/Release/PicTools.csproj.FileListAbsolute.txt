@@ -1,0 +1,10 @@
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Release\PicTools.exe.config
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Release\PicTools.exe
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\bin\Release\PicTools.pdb
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.动画帧格式化工具.resources
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.Properties.Resources.resources
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.csproj.GenerateResource.Cache
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.exe
+c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.pdb
+C:\Users\Sakuya\Documents\Visual Studio 2015\Projects\PicTools\PicTools\bin\Release\CSkin.dll
+C:\Users\Sakuya\Documents\Visual Studio 2015\Projects\PicTools\PicTools\bin\Release\CSkin.xml
