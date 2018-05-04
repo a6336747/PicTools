@@ -8,3 +8,14 @@ c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Rele
 c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Release\PicTools.pdb
 C:\Users\Sakuya\Documents\Visual Studio 2015\Projects\PicTools\PicTools\bin\Release\CSkin.dll
 C:\Users\Sakuya\Documents\Visual Studio 2015\Projects\PicTools\PicTools\bin\Release\CSkin.xml
+C:\个人项目\PicTools\PicTools\bin\Release\PicTools.exe.config
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.exe
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.pdb
+C:\个人项目\PicTools\PicTools\bin\Release\PicTools.exe
+C:\个人项目\PicTools\PicTools\bin\Release\PicTools.pdb
+C:\个人项目\PicTools\PicTools\bin\Release\CSkin.dll
+C:\个人项目\PicTools\PicTools\bin\Release\CSkin.xml
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.csprojResolveAssemblyReference.cache
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.动画帧格式化工具.resources
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.Properties.Resources.resources
+C:\个人项目\PicTools\PicTools\obj\Release\PicTools.csproj.GenerateResource.Cache

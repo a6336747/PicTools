@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace PicTools
         private string[] fileNames;
         List<Image> orginImgs = new List<Image>();
         List<Image> currentImgs = new List<Image>();
+        List<Image> orginImgsPre = new List<Image>();
+        List<Image> currentImgsPre = new List<Image>();
         public 动画帧格式化工具()
         {
             InitializeComponent();
@@ -29,13 +32,14 @@ namespace PicTools
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
         }
 
-        private void Execute(string[] paths)
+        private void Execute(AlignType type)
         {
             orginImgs.Clear();
             currentImgs.Clear();
-            List<Image> orginImgsPre = new List<Image>();
-            List<Image> currentImgsPre = new List<Image>();
-            foreach (var path in paths)
+            orginImgsPre.Clear();
+            currentImgsPre.Clear();
+
+            foreach (var path in fileNames)
             {
                 try
                 {
@@ -53,6 +57,7 @@ namespace PicTools
 
                 }
             }
+
             //获取集合最大宽高
             var maxHeight = orginImgs.Max(d => d.Size.Height);
             var maxWidth = orginImgs.Max(d => d.Size.Width);
@@ -72,22 +77,23 @@ namespace PicTools
                 count++;
             }
 
-            count = 0;//初始化count
+            count = 0; //初始化count
             //批量设定图片宽高
             foreach (var orginImg in orginImgs)
             {
                 var bmp = new Bitmap(maxWidth, maxHeight);
                 var gr = Graphics.FromImage(bmp);
                 //导出图
-                gr.DrawImage(orginImg, (maxWidth / 2) - (orginImg.Size.Width / 2), (maxHeight / 2) - (orginImg.Size.Height / 2));
+//                gr.DrawImage(orginImg, 0, maxHeight - orginImg.Size.Height);
+                SetGraphicsAlign(gr, maxHeight, maxWidth, orginImg, type);
                 currentImgs.Add(bmp);
                 gr.Dispose();
 
                 var bmp1 = new Bitmap(maxWidth, maxHeight);
                 var gr1 = Graphics.FromImage(bmp1);
                 //预览图
-                gr1.DrawImage(orginImg, (maxWidth/2)-(orginImg.Size.Width/2), (maxHeight / 2) - (orginImg.Size.Height / 2));
-                gr1.DrawRectangle(Pens.Aqua, new Rectangle(0, 0, bmp1.Width - 1, bmp1.Height - 1));
+//                gr1.DrawRectangle(Pens.Aqua, new Rectangle(0, 0, bmp1.Width - 1, bmp1.Height - 1));
+                SetGraphicsAlign(gr1, maxHeight, maxWidth, orginImg, type);
                 currentImgsPre.Add(bmp1);
                 gr1.Dispose();
             }
@@ -97,16 +103,46 @@ namespace PicTools
             {
                 var pic = new PictureBox();
                 pic.Image = currentImgPre;
-                currentPoint = new Point(currentPoint.X + (count == 0 ? 0 : currentImgsPre[count - 1].Size.Width), currentPoint.Y);
+                currentPoint = new Point(currentPoint.X + (count == 0 ? 0 : currentImgsPre[count - 1].Size.Width),
+                    currentPoint.Y);
                 pic.Location = currentPoint;
                 pic.SizeMode = PictureBoxSizeMode.AutoSize;
                 pic.Show();
                 panel2.Controls.Add(pic);
                 count++;
             }
-
-            
         }
+
+
+
+        void SetGraphicsAlign(Graphics gr,int maxHeight,int maxWidth, Image orginImg, AlignType alinType)
+        {
+            switch (alinType)
+            {
+                case AlignType.Center:
+                    gr.DrawImage(orginImg, (maxWidth / 2) - (orginImg.Size.Width / 2), (maxHeight / 2) - (orginImg.Size.Height / 2));
+                    break;
+                case AlignType.CenterDown:
+                    gr.DrawImage(orginImg, (maxWidth / 2) - (orginImg.Size.Width / 2), maxHeight - orginImg.Size.Height);
+                    break;
+                case AlignType.CenterUp:
+                    gr.DrawImage(orginImg, (maxWidth / 2) - (orginImg.Size.Width / 2), 0);
+                    break;
+                case AlignType.LeftDown:
+                    gr.DrawImage(orginImg, 0, maxHeight - orginImg.Size.Height);
+                    break;
+                case AlignType.LeftUp:
+                    gr.DrawImage(orginImg, 0, 0);
+                    break;
+                case AlignType.RightDown:
+                    gr.DrawImage(orginImg, maxWidth - orginImg.Size.Width, maxHeight - orginImg.Size.Height);
+                    break;
+                case AlignType.RightUp:
+                    gr.DrawImage(orginImg, maxWidth - orginImg.Size.Width, 0);
+                    break;
+            }
+        }
+
 
         void Form1_DragEnter(object sender, DragEventArgs e)
         {
@@ -120,7 +156,11 @@ namespace PicTools
             panel2.Controls.Clear();
             //获取第一个文件名            
             fileNames = (e.Data.GetData(DataFormats.FileDrop, false) as String[]);
-            Execute(fileNames);
+            //获取文件目录
+            var path = Path.GetDirectoryName(fileNames[0]);
+            label1.Text = path;
+
+            Execute(AlignType.Center);
             try
             {
                 //                this.pictureBox1.ImageLocation = fileName;
@@ -142,14 +182,14 @@ namespace PicTools
                     MessageBox.Show(this, "文件夹路径不能为空", "提示");
                     return;
                 }
-                
+
             }
-            label1.Text=dialog.SelectedPath;
+            label1.Text = dialog.SelectedPath;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(label1.Text)||label1.Text== @"请浏览保存路径:")
+            if (string.IsNullOrEmpty(label1.Text) || label1.Text == @"请浏览保存路径:")
             {
                 MessageBox.Show(this, "文件夹路径不能为空", "提示");
             }
@@ -160,8 +200,12 @@ namespace PicTools
                     int i = 0;
                     foreach (var currentImg in currentImgs)
                     {
-                        string path = label1.Text + @"/" +i.ToString() +@".png";
-                        currentImg.Save(path,ImageFormat.Png);
+                        string path = label1.Text + @"/修正后/" + i.ToString() + @".png";
+                        if (!Directory.Exists(Path.GetDirectoryName(path)))
+                        {
+                            Directory.CreateDirectory(Path.GetDirectoryName(path));
+                        }
+                        currentImg.Save(path, ImageFormat.Png);
                         i++;
                     }
                     MessageBox.Show(this, "处理成功!", "提示");
@@ -171,6 +215,76 @@ namespace PicTools
                     MessageBox.Show(this, "请拖入要处理的图片集", "提示");
                 }
             }
+        }
+
+        /// <summary>
+        /// 左上对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.LeftUp);
+        }
+
+        /// <summary>
+        /// 左下对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.LeftDown);
+        }
+
+        /// <summary>
+        /// 右上对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.RightUp);
+        }
+        
+        /// <summary>
+        /// 右下对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.RightDown);
+        }
+
+        /// <summary>
+        /// 居中对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void center_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.Center);
+        }
+
+        /// <summary>
+        /// 中上对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void centerup_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.CenterUp);
+        }
+        /// <summary>
+        /// 中下对齐
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void centerdown_Click(object sender, EventArgs e)
+        {
+            Execute(AlignType.CenterDown);
         }
     }
 }

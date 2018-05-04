@@ -33,6 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftup = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftdown = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightup = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightdown = new System.Windows.Forms.ToolStripMenuItem();
+            this.center = new System.Windows.Forms.ToolStripMenuItem();
+            this.centerup = new System.Windows.Forms.ToolStripMenuItem();
+            this.centerdown = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,6 +94,79 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(899, 25);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftup,
+            this.leftdown,
+            this.centerup,
+            this.center,
+            this.centerdown,
+            this.rightup,
+            this.rightdown});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(68, 21);
+            this.toolStripMenuItem1.Text = "对齐方式";
+            // 
+            // leftup
+            // 
+            this.leftup.Name = "leftup";
+            this.leftup.Size = new System.Drawing.Size(152, 22);
+            this.leftup.Text = "左上对齐";
+            this.leftup.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // leftdown
+            // 
+            this.leftdown.Name = "leftdown";
+            this.leftdown.Size = new System.Drawing.Size(152, 22);
+            this.leftdown.Text = "左下对齐";
+            this.leftdown.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // rightup
+            // 
+            this.rightup.Name = "rightup";
+            this.rightup.Size = new System.Drawing.Size(152, 22);
+            this.rightup.Text = "右上对齐";
+            this.rightup.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // rightdown
+            // 
+            this.rightdown.Name = "rightdown";
+            this.rightdown.Size = new System.Drawing.Size(152, 22);
+            this.rightdown.Text = "右下对齐";
+            this.rightdown.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // center
+            // 
+            this.center.Name = "center";
+            this.center.Size = new System.Drawing.Size(152, 22);
+            this.center.Text = "中心对齐";
+            this.center.Click += new System.EventHandler(this.center_Click);
+            // 
+            // centerup
+            // 
+            this.centerup.Name = "centerup";
+            this.centerup.Size = new System.Drawing.Size(152, 22);
+            this.centerup.Text = "中上对齐";
+            this.centerup.Click += new System.EventHandler(this.centerup_Click);
+            // 
+            // centerdown
+            // 
+            this.centerdown.Name = "centerdown";
+            this.centerdown.Size = new System.Drawing.Size(152, 22);
+            this.centerdown.Text = "中下对齐";
+            this.centerdown.Click += new System.EventHandler(this.centerdown_Click);
+            // 
             // 动画帧格式化工具
             // 
             this.AllowDrop = true;
@@ -95,9 +178,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "动画帧格式化工具";
             this.Text = "动画帧格式化工具";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,6 +196,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem leftup;
+        private System.Windows.Forms.ToolStripMenuItem leftdown;
+        private System.Windows.Forms.ToolStripMenuItem rightup;
+        private System.Windows.Forms.ToolStripMenuItem rightdown;
+        private System.Windows.Forms.ToolStripMenuItem center;
+        private System.Windows.Forms.ToolStripMenuItem centerup;
+        private System.Windows.Forms.ToolStripMenuItem centerdown;
     }
 }
 
