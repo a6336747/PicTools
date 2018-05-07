@@ -38,6 +38,7 @@ namespace PicTools
             currentImgs.Clear();
             orginImgsPre.Clear();
             currentImgsPre.Clear();
+            panel2.Controls.Clear();
 
             foreach (var path in fileNames)
             {
@@ -92,7 +93,7 @@ namespace PicTools
                 var bmp1 = new Bitmap(maxWidth, maxHeight);
                 var gr1 = Graphics.FromImage(bmp1);
                 //预览图
-//                gr1.DrawRectangle(Pens.Aqua, new Rectangle(0, 0, bmp1.Width - 1, bmp1.Height - 1));
+                gr1.DrawRectangle(Pens.Aqua, new Rectangle(0, 0, bmp1.Width - 1, bmp1.Height - 1));
                 SetGraphicsAlign(gr1, maxHeight, maxWidth, orginImg, type);
                 currentImgsPre.Add(bmp1);
                 gr1.Dispose();

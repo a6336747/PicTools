@@ -7,3 +7,13 @@ c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debu
 c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.exe
 c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.pdb
 c:\users\sakuya\documents\visual studio 2015\Projects\PicTools\PicTools\obj\Debug\PicTools.动画帧格式化工具.resources
+C:\个人项目\PicTools\PicTools\bin\Debug\PicTools.exe.config
+C:\个人项目\PicTools\PicTools\obj\Debug\PicTools.exe
+C:\个人项目\PicTools\PicTools\obj\Debug\PicTools.pdb
+C:\个人项目\PicTools\PicTools\bin\Debug\PicTools.exe
+C:\个人项目\PicTools\PicTools\bin\Debug\PicTools.pdb
+C:\个人项目\PicTools\PicTools\bin\Debug\CSkin.dll
+C:\个人项目\PicTools\PicTools\bin\Debug\CSkin.xml
+C:\个人项目\PicTools\PicTools\obj\Debug\PicTools.动画帧格式化工具.resources
+C:\个人项目\PicTools\PicTools\obj\Debug\PicTools.Properties.Resources.resources
+C:\个人项目\PicTools\PicTools\obj\Debug\PicTools.csproj.GenerateResource.Cache

@@ -37,11 +37,11 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.leftup = new System.Windows.Forms.ToolStripMenuItem();
             this.leftdown = new System.Windows.Forms.ToolStripMenuItem();
+            this.centerup = new System.Windows.Forms.ToolStripMenuItem();
+            this.center = new System.Windows.Forms.ToolStripMenuItem();
+            this.centerdown = new System.Windows.Forms.ToolStripMenuItem();
             this.rightup = new System.Windows.Forms.ToolStripMenuItem();
             this.rightdown = new System.Windows.Forms.ToolStripMenuItem();
-            this.center = new System.Windows.Forms.ToolStripMenuItem();
-            this.centerup = new System.Windows.Forms.ToolStripMenuItem();
-            this.centerdown = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,6 +106,7 @@
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.leftup,
             this.leftdown,
@@ -132,6 +133,27 @@
             this.leftdown.Text = "左下对齐";
             this.leftdown.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
+            // centerup
+            // 
+            this.centerup.Name = "centerup";
+            this.centerup.Size = new System.Drawing.Size(152, 22);
+            this.centerup.Text = "中上对齐";
+            this.centerup.Click += new System.EventHandler(this.centerup_Click);
+            // 
+            // center
+            // 
+            this.center.Name = "center";
+            this.center.Size = new System.Drawing.Size(152, 22);
+            this.center.Text = "中心对齐";
+            this.center.Click += new System.EventHandler(this.center_Click);
+            // 
+            // centerdown
+            // 
+            this.centerdown.Name = "centerdown";
+            this.centerdown.Size = new System.Drawing.Size(152, 22);
+            this.centerdown.Text = "中下对齐";
+            this.centerdown.Click += new System.EventHandler(this.centerdown_Click);
+            // 
             // rightup
             // 
             this.rightup.Name = "rightup";
@@ -145,27 +167,6 @@
             this.rightdown.Size = new System.Drawing.Size(152, 22);
             this.rightdown.Text = "右下对齐";
             this.rightdown.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // center
-            // 
-            this.center.Name = "center";
-            this.center.Size = new System.Drawing.Size(152, 22);
-            this.center.Text = "中心对齐";
-            this.center.Click += new System.EventHandler(this.center_Click);
-            // 
-            // centerup
-            // 
-            this.centerup.Name = "centerup";
-            this.centerup.Size = new System.Drawing.Size(152, 22);
-            this.centerup.Text = "中上对齐";
-            this.centerup.Click += new System.EventHandler(this.centerup_Click);
-            // 
-            // centerdown
-            // 
-            this.centerdown.Name = "centerdown";
-            this.centerdown.Size = new System.Drawing.Size(152, 22);
-            this.centerdown.Text = "中下对齐";
-            this.centerdown.Click += new System.EventHandler(this.centerdown_Click);
             // 
             // 动画帧格式化工具
             // 
